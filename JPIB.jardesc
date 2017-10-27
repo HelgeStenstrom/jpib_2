@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<jardesc>
+    <jar path="JPIB/JPIB.jar"/>
+    <options buildIfNeeded="true" compress="true" descriptionLocation="/JPIB/JPIB.jardesc" exportErrors="false" exportWarnings="true" includeDirectoryEntries="true" overwrite="true" saveDescription="true" storeRefactorings="false" useSourceFolders="false"/>
+    <storedRefactorings deprecationInfo="true" structuralOnly="false"/>
+    <selectedProjects/>
+    <manifest generateManifest="true" mainClassHandleIdentifier="=JPIB/java\/src&lt;be.ac.ulb.gpib{GPIBTest.java[GPIBTest" manifestLocation="" manifestVersion="1.0" reuseManifest="false" saveManifest="false" usesManifest="true">
+        <sealing sealJar="true">
+            <packagesToSeal/>
+            <packagesToUnSeal/>
+        </sealing>
+    </manifest>
+    <selectedElements exportClassFiles="true" exportJavaFiles="false" exportOutputFolder="false">
+        <file path="/JPIB/LICENSE"/>
+        <javaElement handleIdentifier="=JPIB/java\/src"/>
+        <file path="/JPIB/README.txt"/>
+    </selectedElements>
+</jardesc>

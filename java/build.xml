@@ -1,0 +1,68 @@
+<?xml version="1.0" ?>
+<!--:folding=indent:collapseFolds=0:-->
+<project name="jpib" basedir="." default="dist" >
+
+	<property name="nowarn" value="true" />
+	
+
+	<target name="init">
+		<mkdir dir="classes" />
+	</target>
+
+	<target name="compile" depends="init" description="Compiles source code into classes directory">
+		<javac destdir="classes" debug="on" deprecation="on" nowarn="${nowarn}">
+			<src path="src" />
+			<classpath>
+    			<fileset dir="lib">
+					<include name="*.jar" />
+				</fileset>				
+			</classpath>
+		</javac>
+	</target>
+
+	<target name="devbuild" description="Creates jpib.jar in lib directory for development and testing" depends="compile" >
+		<jar destfile="lib/jpib.jar"
+			basedir="classes" />
+	</target>	
+
+	<target name="dist" description="Creates a distribution zip file" depends="compile" >
+		<property name="distdir" value="jpib" />
+		<property name="version" value="" />
+		<property name="distfile" value="jpib${version}.zip" />
+		<delete file="${distfile}" />
+		<delete dir="${distdir}" />
+		
+		<!--moved from init-->
+		<mkdir dir="${distdir}" />
+
+		<copy todir="${distdir}/bin">
+			<fileset dir="bin"/>
+		</copy>
+		<copy todir="${distdir}/lib">
+    			<fileset dir="lib"/>
+		</copy>
+
+		<copy todir="${distdir}/classes">
+    			<fileset dir="classes"/>
+		</copy>
+
+		<copy todir="${distdir}">
+			<fileset dir=".">
+				<include name="*.txt"/>
+			</fileset>
+		</copy>
+
+		<!--create the distribution-->
+		<zip basedir="." destfile="${distfile}" includes="${distdir}/**"/>
+		
+		<!-- delete the temp dir -->
+		<delete dir="${distdir}" />
+	
+		
+	</target>
+
+	<target name="clean" description="Cleans">
+		<delete dir="classes" />
+	</target>
+
+</project>
